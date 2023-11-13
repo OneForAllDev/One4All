@@ -49,11 +49,11 @@ model Game {
 model Session {
   idSession Int @id @default(autoincrement())
   name String
-  data DateTime
   type_training String
   idAspirant Int
   idMentor Int
   idGame Int
+  combined_datetime DateTime
 }
 
 model FeedBack {
