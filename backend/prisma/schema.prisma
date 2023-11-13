@@ -9,3 +9,55 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  idUser  Int @id @default(autoincrement())
+  first_name  String?
+  last_name String?
+  date_of_birth DateTime
+  sex String?
+  roles String?
+}
+
+model Admin {
+  idAdmin Int @id @default(autoincrement())
+  role String?
+  idUser Int
+}
+
+model Aspirant {
+  idAspirant Int @id @default(autoincrement())
+  level String?
+  type String?
+  idUser Int
+}
+
+model Mentor {
+  idMentor Int @id @default(autoincrement())
+  level String
+  roles String
+  type String
+  idUser Int
+}
+
+model Game {
+  idGame Int @id @default(autoincrement())
+  name String
+  kind String
+}
+
+model Session {
+  idSession Int @id @default(autoincrement())
+  name String
+  type_training String
+  idAspirant Int
+  idMentor Int
+  idGame Int
+  combined_datetime DateTime
+}
+
+model FeedBack {
+  idFeedBack Int @id @default(autoincrement())
+  comment String?
+  idSession Int
+}
