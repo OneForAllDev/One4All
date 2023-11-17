@@ -1,10 +1,22 @@
 {
-  "devDependencies": {
-    "@types/node": "^20.8.6",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+  "name": "oneforall-api",
+  "version": "0.1",
+  "scripts": {
+    "dev": "ts-node ./prisma/index.ts"
   },
   "dependencies": {
+    "@prisma/client": "5.5.2",
+    "@types/node": "20.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.16",
+    "@types/express": "4.17.21",
+    "@types/node": "20.9.0",
+    "prisma": "5.5.2",
+    "ts-node": "10.9.1",
+    "typescript": "5.2.2"
   }
 }
