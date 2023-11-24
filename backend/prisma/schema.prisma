@@ -17,11 +17,15 @@ model User {
   date_of_birth DateTime
   sex String?
   roles String?
+  admin Admin[]
+  aspirant Aspirant[]
+  mentor Mentor[]
 }
 
 model Admin {
   idAdmin Int @id @default(autoincrement())
   role String?
+  user User @relation(fields: [idUser], references: [idUser])
   idUser Int
 }
 
@@ -29,6 +33,7 @@ model Aspirant {
   idAspirant Int @id @default(autoincrement())
   level String?
   type String?
+  user User @relation(fields: [idUser], references: [idUser])
   idUser Int
 }
 
@@ -37,6 +42,7 @@ model Mentor {
   level String
   roles String
   type String
+  user User @relation(fields: [idUser], references: [idUser])
   idUser Int
 }
 

@@ -1,6 +1,5 @@
 {
   "name": "oneforall-api",
-  "version": "0.1",
   "scripts": {
     "dev": "ts-node ./prisma/index.ts"
   },
