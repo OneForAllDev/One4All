@@ -30,6 +30,7 @@ model Aspirant {
   level String?
   type String?
   idUser Int
+  session Session?
 }
 
 model Mentor {
@@ -38,22 +39,27 @@ model Mentor {
   roles String
   type String
   idUser Int
+  session Session?
 }
 
 model Game {
   idGame Int @id @default(autoincrement())
   name String
   kind String
+  session Session?
 }
 
 model Session {
   idSession Int @id @default(autoincrement())
   name String
   type_training String
-  idAspirant Int
-  idMentor Int
-  idGame Int
   combined_datetime DateTime
+  aspirant Aspirant? @relation(fields: [idAspirant], references: [idAspirant])
+  mentor Mentor? @relation(fields: [idMentor], references: [idMentor])
+  game Game? @relation(fields: [idGame], references: [idGame])
+  idAspirant Int @unique
+  idMentor Int @unique
+  idGame Int @unique
 }
 
 model FeedBack {
