@@ -31,6 +31,6 @@ app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 
-app.listen(5000, () => {
-  console.log("Server ready at: http://localhost:5000");
+app.listen(process.env.APP_PORT, () => {
+  console.log(`Server ready at: ${process.env.APP_PORT}`);
 });
